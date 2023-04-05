@@ -13,6 +13,7 @@ const Paths = () => {
             <Route path="/setimo-periodo" />
             <Route path="/oitavo-periodo" />
             <Route path="/optativas" />
+            <Route path="/materias" />
             <Route path="/*" /> {/* Nao encontrado */}
         </Routes>
     )
