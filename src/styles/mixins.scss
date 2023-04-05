@@ -17,8 +17,13 @@
   line-height: $lh;
 }
 
-@mixin mq($width, $type) {
+@mixin mqW($width, $type) {
   @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+@mixin mqH($height, $type) {
+  @media only screen and (#{$type}-height: $height) {
     @content;
   }
 }

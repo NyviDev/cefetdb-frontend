@@ -1,0 +1,30 @@
+@import "../../../styles/all.scss";
+
+.modalWrapper {
+  background-color: $white;
+  border-radius: 8px;
+  padding: 5px 15px;
+
+  .button {
+    @include fontStyle(400, 15px, 25px, $blue);
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 2px;
+      content: "";
+      display: block;
+      height: 1px;
+      right: 100%;
+      position: absolute;
+      background-color: $blue;
+      transition: width 0.3s ease 0s, right 0.3s ease 0s;
+      width: 0;
+    }
+    &:hover::after {
+      width: 100%;
+      right: 0;
+    }
+  }
+}

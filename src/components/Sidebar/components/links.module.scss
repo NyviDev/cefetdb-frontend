@@ -1,0 +1,16 @@
+@import "../../../styles/all.scss";
+
+.navbar {
+    flex: 1;
+    width: 100%;
+    .item {
+      text-align: center;
+      @include fontStyle(500, 21px, 25px, $white);
+      padding: 10px 0;
+
+      &.active {
+        background: $white;
+        color: $black;
+      }
+    }
+  }

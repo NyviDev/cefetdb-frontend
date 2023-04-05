@@ -1,0 +1,15 @@
+@import "../../styles/all.scss";
+
+.sidebar {
+  @include flex(column, center, space-between);
+  padding: 50px 0;
+  max-width: 400px;
+  width: 30%;
+  height: 100vh;
+  background: $blue;
+
+  @include mqH(650px, max) {
+    padding: 25px 0;
+  }
+  
+}
