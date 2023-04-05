@@ -1,10 +1,11 @@
 @import "../../../styles/all.scss";
 
 .searchBar {
+  @include flex(row, center, center);
   position: relative;
   margin-bottom: 30px;
-
-  @include flex(row, center, center);
+  width: 100%;
+  
   .input {
     margin: 0 16px;
     padding: 0 35px 0 10px;
