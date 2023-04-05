@@ -1,0 +1,19 @@
+@import "../styles/all.scss";
+
+.sidebar {
+    max-width: 400px;
+    width: 30%;
+    height: 100vh;
+    background: $blue;
+
+    .item {
+        text-align: center;
+        @include fontStyle(500, 21px, 25px, $white);
+        padding: 10px 0;
+
+        &.active {
+            background: $white;
+            color: $black;
+        }
+    }
+}

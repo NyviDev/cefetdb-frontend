@@ -1,20 +1,20 @@
 import React from "react";
-
+import styles from "./sidebar.module.scss";
 
 function Sidebar() {
   return (
-    <aside>
+    <aside className={styles.sidebar}>
       <nav>
         <ul>
-          <li>1º Período</li>
-          <li>2º Período</li>
-          <li>3º Período</li>
-          <li>4º Período</li>
-          <li>5º Período</li>
-          <li>6º Período</li>
-          <li>7º Período</li>
-          <li>8º Período</li>
-          <li>Optativas</li>
+          <li className={styles.item}>1º Período</li>
+          <li className={styles.item}>2º Período</li>
+          <li className={`${styles.item} ${styles.active}`}>3º Período</li>
+          <li className={styles.item}>4º Período</li>
+          <li className={styles.item}>5º Período</li>
+          <li className={styles.item}>6º Período</li>
+          <li className={styles.item}>7º Período</li>
+          <li className={styles.item}>8º Período</li>
+          <li className={styles.item}>Optativas</li>
         </ul>
       </nav>
     </aside>
