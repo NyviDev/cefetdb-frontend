@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./sidebar.module.scss";
+import SearchBar from "./components/SearchBar";
 
 function Sidebar() {
   return (
     <aside className={styles.sidebar}>
+      <SearchBar />
       <nav>
         <ul>
           <li className={styles.item}>1º Período</li>
