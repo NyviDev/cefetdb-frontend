@@ -3,8 +3,9 @@
 .searchBar {
   @include flex(row, center, center);
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   width: 100%;
+
   
   .input {
     margin: 0 16px;
@@ -23,9 +24,10 @@
     }
   }
   .buttonSearch {
-    right: 26px;
+    right: 16px;
     position: absolute;
-    height: 20px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
 
     .searchIcon {
