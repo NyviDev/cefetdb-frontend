@@ -1,0 +1,36 @@
+@import "../../../styles/all.scss";
+
+.searchBar {
+  @include flex(row, center, center);
+  position: relative;
+  margin-bottom: 35px;
+  width: 100%;
+  
+  .input {
+    margin: 0 16px;
+    padding: 0 35px 0 10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+
+    &:focus {
+      outline: 2px solid $dark-blue;
+    }
+
+    &::placeholder {
+      @include fontStyle(300, 12px, 15px, $black);
+    }
+  }
+  .buttonSearch {
+    right: 16px;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+
+    .searchIcon {
+      font-size: 20px;
+    }
+  }
+}

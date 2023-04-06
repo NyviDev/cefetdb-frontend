@@ -1,0 +1,29 @@
+@mixin flex($fd, $al, $jc) {
+  display: flex;
+  flex-direction: $fd;
+  align-items: $al;
+  justify-content: $jc;
+}
+
+@mixin fontStyle($fw, $fs, $lh, $fc) {
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  color: $fc;
+}
+
+@mixin responsiveFontStyle($fs, $lh) {
+  font-size: $fs;
+  line-height: $lh;
+}
+
+@mixin mqW($width, $type) {
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+@mixin mqH($height, $type) {
+  @media only screen and (#{$type}-height: $height) {
+    @content;
+  }
+}
