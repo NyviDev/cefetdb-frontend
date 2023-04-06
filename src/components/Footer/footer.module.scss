@@ -1,0 +1,16 @@
+@import "../../styles/all.scss";
+.footer {
+    z-index: 2;
+    position: fixed;
+    background: $blue;
+    text-align: end;
+    height: 35px;
+    padding-right: 20px; 
+    bottom: 0;
+    width: 100%;
+    @include flex(row, center,flex-end);
+    .developedBy {
+        
+        @include fontStyle(500, 15px, 16px, $white);
+    }
+}
