@@ -20,3 +20,7 @@ button {
 a {
   text-decoration: none;
 }
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}

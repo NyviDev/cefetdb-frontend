@@ -4,22 +4,26 @@ import { AiFillFileText } from "react-icons/ai";
 import styles from "./files.module.scss";
 
 interface iFiles {
-  fileArray: Array<string>;
+  fileArray: string[];
 }
-const Files = ({ fileArray }: iFiles) => {
-  return (
-    fileArray.length === 0 ? (<p className={styles.fileNotFound}>Prova Não Encontrada</p>) : (<ul className={styles.files}>
+const Files: React.FC<iFiles> = ({ fileArray }) => {
+  return fileArray.length === 0 ? (
+    <div className={styles.notFoundContainer}>
+      <p className={styles.fileNotFound}>Prova Não Encontrada</p>
+    </div>
+  ) : (
+    <ul className={styles.files}>
       {fileArray.map((file) => {
         return (
           <li className={styles.fileContainer}>
-          <AiFillFileText />
-          <a className={styles.file} href="google.com">
-            {file}
-          </a>
-        </li>
-        )
+            <AiFillFileText />
+            <a className={styles.file} href="google.com">
+              {file}
+            </a>
+          </li>
+        );
       })}
-    </ul>)
+    </ul>
   );
 };
 

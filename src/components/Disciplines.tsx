@@ -1,8 +1,7 @@
-import React from "react";
-import { AiOutlinePlus } from "react-icons/ai";
+import React, {useState} from "react";
 
 import styles from "./disciplines.module.scss";
-import Files from "./Files";
+import Discipline from "./Discipline";
 
 const Disciplines = () => {
   const periods = {
@@ -76,20 +75,20 @@ const Disciplines = () => {
     // 8: ["Governança de TI", "Legislação e Prop. Intelectual", "Economia"],
   };
 
+  function toggleAccordion(i: number) {
+    if(accordion === i) {
+      return setAccordion(-1);
+    }
+    setAccordion(i);
+  }
+
+  const [accordion, setAccordion] = useState(-1);
+
   return (
     <ul className={styles.disciplines}>
-      {Object.entries(periods[1]).map(([period, Disciplines]) => {
-        console.log(Disciplines);
+      {Object.entries(periods[1]).map(([period, Disciplines], i) => {
         return (
-          <li className={styles.container}>
-            <div className={styles.header}>
-              <h3 className={styles.title}>{period}</h3>
-              <button className={styles.button}>
-                <AiOutlinePlus />
-              </button>
-            </div>
-            <Files fileArray={Disciplines}/>
-          </li>
+          <Discipline period={period} disciplines={Disciplines} index={i} toggleAccordion={toggleAccordion} accordion={accordion} />
         );
       })}
     </ul>

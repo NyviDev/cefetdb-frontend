@@ -1,13 +1,12 @@
 @import "../styles/all.scss";
 
 .files {
-  @include flex(column, center, center);
+  padding: 20px 0;
   gap: 20px;
-  padding: 30px 0;
 
   .fileContainer {
     @include flex(row, center, center);
-
+    margin: 10px 0;
     gap: 5px;
     color: $black;
 
@@ -21,8 +20,12 @@
     }
   }
 }
-.fileNotFound {
-  @include fontStyle(400, 18px, 25px, $black);
-  text-align: center;
+
+.notFoundContainer {
   padding: 30px 0;
+
+  .fileNotFound {
+    @include fontStyle(400, 18px, 25px, $black);
+    text-align: center;
+  }
 }
