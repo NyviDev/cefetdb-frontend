@@ -1,0 +1,37 @@
+@import "../styles/all.scss";
+
+.disciplines {
+    @include flex(column, center, flex-start);
+    gap: 20px;
+    width: 100%;
+    padding: 50px 20px;
+    background-color: $white;
+    .container {
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 11px 10px 20px rgba(0, 0, 0, 0.25);
+      .header {
+        @include flex(row, center, flex-end);
+        background-color: $dark-blue;
+        color: $white;
+        height: 60px;
+        border-radius: 8px;
+        padding: 0 10px;
+        .title {
+          flex: 1;
+          text-align: center;
+          @include fontStyle(400, 21px, 25px, $white);
+        }
+
+        .button {
+          color: $white;
+          font-size: 30px;
+          height: 30px;
+        }
+      }
+
+      
+    }
+  }

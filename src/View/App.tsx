@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
-import Disciplines from "./Disciplines";
+import Home from "./Home";
 
 import styles from "./app.module.scss";
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className={styles.app}>
       <Sidebar />
-      <Disciplines />
+      <Home />
     </div>
   );
 }

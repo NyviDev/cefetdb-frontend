@@ -1,0 +1,25 @@
+@import "../../styles/all.scss";
+
+.main {
+  @include flex(column, center, flex-start);
+  padding-top: 50px;
+  flex: 1;
+  min-height: 100vh;
+  background: rgb(20, 66, 114);
+  background: linear-gradient(
+    328deg,
+    rgba(20, 66, 114, 0.7567401960784313) 0%,
+    rgba(248, 248, 248, 1) 64%
+  );
+  margin-left: 300px;
+
+  .title {
+    @include fontStyle(800, 42px, 55px, $black);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 500px;
+  }
+
+  
+}
