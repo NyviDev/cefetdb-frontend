@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Collapse } from "react-collapse";
-import Files from "./Files";
+
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import styles from "./discipline.module.scss";
+import Files from "./Files";
 
 interface iDiscipline {
   period: string;
