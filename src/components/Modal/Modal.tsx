@@ -43,7 +43,7 @@ const Modal = () => {
                   <option value="course3">Programação para Clientes Web</option>
                 </select>
                 <label htmlFor="file" className={styles.input}>
-                  Enviar um arquivo
+                  Selecionar um arquivo
                   <input ref={ref} id="file" type="file" />
                 </label>
               </div>
@@ -52,6 +52,7 @@ const Modal = () => {
               ) : (
                 <p className={styles.notFound}>Nenhum Arquivo Encontrado</p>
               )}
+              <button className={styles.send}>Enviar</button>
             </form>
           </div>
         </div>

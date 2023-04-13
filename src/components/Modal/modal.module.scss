@@ -9,6 +9,7 @@
   .modal {
     @include flex(column, flex-end, center);
     padding: 15px;
+    margin: 0 20px;
     max-width: 800px;
     width: 100%;
     background-color: $white;
@@ -31,7 +32,6 @@
       margin: 0 auto;
 
       .formWrapper {
-        
         select {
           height: 30px;
           margin-right: 10px;
@@ -43,6 +43,10 @@
           background-color: $blue;
           padding: 7px 10px;
           border-radius: 8px;
+
+          &:hover {
+            background-color: $dark-blue;
+          }
 
           input[type="file"] {
             display: none;
@@ -64,6 +68,23 @@
       .fileFound {
         font-weight: 700;
         color: $black;
+      }
+
+      .send {
+        @include fontStyle(500, 15px, 16px, $white);
+        margin-top: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
+        background-color: $blue;
+        padding: 7px 20px;
+        border-radius: 8px;
+        box-shadow: 36px 48px 50px -10px rgba(0,0,0,0.26);
+
+        transition: background 0.3s ease-in-out;
+
+        &:hover {
+          background-color: $dark-blue;
+        }
       }
     }
   }
