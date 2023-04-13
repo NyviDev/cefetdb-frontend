@@ -44,7 +44,6 @@ jobs:
           git config --global user.email "pipeline@cefetdb.rattz.xyz"
           git config --global user.name "Pipeline"
 
-          git checkout -b development
           GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
           git add .
           git commit -m "Frontend update from commit $GIT_HASH in $GITHUB_REF_NAME at $GITHUB_REPOSITORY"
