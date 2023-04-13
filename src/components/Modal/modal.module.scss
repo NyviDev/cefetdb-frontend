@@ -27,25 +27,43 @@
     }
 
     .form {
-      @include flex(row, center, center);
-      flex-wrap: wrap;
-      width: 100%;
-      gap: 10px;
+      @include flex(column, center, center);
+      margin: 0 auto;
 
-      select {
-        height: 30px;
+      .formWrapper {
+        
+        select {
+          height: 30px;
+          margin-right: 10px;
+        }
+
+        .input {
+          @include fontStyle(500, 15px, 16px, $white);
+          cursor: pointer;
+          background-color: $blue;
+          padding: 7px 10px;
+          border-radius: 8px;
+
+          input[type="file"] {
+            display: none;
+          }
+        }
       }
 
-      .input {
-        @include fontStyle(500, 15px, 16px, $white);
-        cursor: pointer;
-        background-color: $blue;
-        padding: 7px 10px;
-        border-radius: 8px;
+      p {
+        width: 100%;
+        text-align: end;
+        font-size: 15px;
+        margin-top: 5px;
+      }
 
-        input[type="file"] {
-          display: none;
-        }
+      .notFound {
+        color: red;
+      }
+
+      .fileFound {
+        font-weight: 700;
+        color: $black;
       }
     }
   }
