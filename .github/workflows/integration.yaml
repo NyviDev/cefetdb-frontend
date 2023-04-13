@@ -3,10 +3,11 @@ name: Integration with main repository
 on:
   push:
     branches:
-      - main
+      - master
+      - infra/integration
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   integration:
