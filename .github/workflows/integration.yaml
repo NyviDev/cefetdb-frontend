@@ -26,10 +26,12 @@ jobs:
           cd cefetdb2
 
       - name: Update frontend
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
         run: |
-          mv ../src frontend/src
-          mv ../public frontend/public
-          mv ../*.json frontend/
+          mv ../$REPO_NAME/src frontend/src
+          mv ../$REPO_NAME/public frontend/public
+          mv ../$REPO_NAME/*.json frontend/
 
       - name: Commit and push changes to main repository
         run: |
