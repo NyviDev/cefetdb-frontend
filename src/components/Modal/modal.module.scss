@@ -1,0 +1,70 @@
+@import "../../styles/all.scss";
+
+.overlay {
+  @include flex(row, center, center);
+  position: fixed;
+  padding-left: 300px;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.35);
+  .modal {
+    @include flex(column, flex-end, center);
+    padding: 15px;
+    max-width: 800px;
+    width: 100%;
+    background-color: $white;
+    border-radius: 8px;
+
+    .title {
+      @include fontStyle(800, 18px, 20px, $black);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .close {
+      font-size: 30px;
+    }
+
+    .form {
+      @include flex(column, center, center);
+      margin: 0 auto;
+
+      .formWrapper {
+        
+        select {
+          height: 30px;
+          margin-right: 10px;
+        }
+
+        .input {
+          @include fontStyle(500, 15px, 16px, $white);
+          cursor: pointer;
+          background-color: $blue;
+          padding: 7px 10px;
+          border-radius: 8px;
+
+          input[type="file"] {
+            display: none;
+          }
+        }
+      }
+
+      p {
+        width: 100%;
+        text-align: end;
+        font-size: 15px;
+        margin-top: 5px;
+      }
+
+      .notFound {
+        color: red;
+      }
+
+      .fileFound {
+        font-weight: 700;
+        color: $black;
+      }
+    }
+  }
+}
