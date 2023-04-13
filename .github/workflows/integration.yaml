@@ -19,13 +19,13 @@ jobs:
           MAIN_REPO: lucasrattz/cefetdb2.git
         run: |
           git clone https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
-          cd cefetdb2
 
       - name: Update frontend
         run: |
-          mv ../src frontend/src
-          mv ../public frontend/public
-          mv ../*.json frontend/
+          cd cefetdb2
+          mv ./src frontend/src
+          mv ./public frontend/public
+          mv ./*.json frontend/
 
       - name: Commit and push changes to main repository
         run: |
