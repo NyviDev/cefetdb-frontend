@@ -22,7 +22,9 @@ jobs:
 
       - name: Update frontend
         run: |
+          ls -l
           cd cefetdb2
+          ls -l
           mv ./src frontend/src
           mv ./public frontend/public
           mv ./*.json frontend/
