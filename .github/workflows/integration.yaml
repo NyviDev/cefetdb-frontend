@@ -11,6 +11,9 @@ on:
 
 jobs:
   integration:
+    env:
+      GITHUB_TOKEN: ${{ secrets.MAIN_REPO_TOKEN }}
+      MAIN_REPO: lucasrattz/cefetdb2.git
     runs-on: ubuntu-latest
     steps:
       - name: Checkout frontend repository
@@ -18,9 +21,6 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Clone main repository
-        env:
-          GITHUB_TOKEN: ${{ secrets.MAIN_REPO_TOKEN }}
-          MAIN_REPO: lucasrattz/cefetdb2.git
         run: |
           git clone https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
           cd cefetdb2
@@ -47,4 +47,4 @@ jobs:
           GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
           git add .
           git commit -m "Frontend update from commit $GIT_HASH in $GITHUB_REF_NAME at $GITHUB_REPOSITORY"
-          git push origin development
+          git push --set-upstream https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO origin development
