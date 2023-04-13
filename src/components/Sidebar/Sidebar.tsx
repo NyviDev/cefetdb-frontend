@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import Links from "./components/Links";
 import ButtonModal from "./components/ButtonModal";
 
+
 function Sidebar() {
   return (
     <aside className={styles.sidebar}>
