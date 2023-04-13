@@ -22,7 +22,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Clone main repository
         run: |
-          git clone https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
+          git clone -b development https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
           cd cefetdb2
 
       - name: Update frontend
@@ -48,4 +48,4 @@ jobs:
           GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
           git add .
           git commit -m "Frontend update from commit $GIT_HASH in $GITHUB_REF_NAME at $GITHUB_REPOSITORY"
-          git push --set-upstream origin development
+          git push --set-upstream https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO development
