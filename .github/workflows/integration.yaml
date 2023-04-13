@@ -40,6 +40,9 @@ jobs:
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
               xargs -L1 git config --unset-all
 
+          git config user.email "pipeline@cefetdb.rattz.xyz"
+          git config user.name "Pipeline"
+
           git checkout -b development
           GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
           git add .
