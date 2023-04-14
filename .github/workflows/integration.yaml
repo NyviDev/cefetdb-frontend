@@ -13,28 +13,25 @@ jobs:
   integration:
     env:
       GITHUB_TOKEN: ${{ secrets.MAIN_REPO_TOKEN }}
+      FRONTEND_REPO: ${{ github.event.repository.name }}
       MAIN_REPO: lucasrattz/cefetdb2.git
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout frontend repository
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Clone frontend repository
+        run: |
+          git clone -b master https://github.com/$FRONTEND_REPO
+
       - name: Clone main repository
         run: |
           git clone -b development https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
           cd cefetdb2
 
       - name: Update frontend
-        env:
-          REPO_NAME: ${{ github.event.repository.name }}
         run: |
-          git pull
-          rm -rf frontend
           mkdir frontend
-          mv ../$REPO_NAME/src frontend/src
-          mv ../$REPO_NAME/public frontend/public
-          mv ../$REPO_NAME/*.json frontend/
+          mv ../$FRONTEND_REPO/src frontend/src
+          mv ../$FRONTEND_REPO/public frontend/public
+          mv ../$FRONTEND_REPO/*.json frontend/
 
       - name: Commit and push changes to main repository
         run: |
