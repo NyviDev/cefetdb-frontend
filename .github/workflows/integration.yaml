@@ -1,0 +1,48 @@
+name: Integration with main repository
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  integration:
+    env:
+      GITHUB_TOKEN: ${{ secrets.MAIN_REPO_TOKEN }}
+      MAIN_REPO: lucasrattz/cefetdb2.git
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone frontend repository
+        env:
+          FRONTEND_REPO: ${{ github.repository }}
+        run: |
+          git clone -b master https://github.com/$FRONTEND_REPO
+
+      - name: Clone main repository
+        run: |
+          git clone -b development https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
+
+      - name: Update frontend
+        env:
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          cd cefetdb2
+          mkdir frontend
+          mv ../$REPO/src frontend/src
+          mv ../$REPO/public frontend/public
+          mv ../$REPO/*.json frontend/
+
+      - name: Commit and push changes to main repository
+        run: |
+          cd cefetdb2
+
+          git config --global user.email "pipeline@cefetdb.rattz.xyz"
+          git config --global user.name "Pipeline"
+
+          GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
+          git add .
+          git commit -m "Frontend update from commit $GIT_HASH in $GITHUB_REF_NAME at $GITHUB_REPOSITORY"
+          git push origin development
