@@ -13,11 +13,12 @@ jobs:
   integration:
     env:
       GITHUB_TOKEN: ${{ secrets.MAIN_REPO_TOKEN }}
-      FRONTEND_REPO: ${{ github.repository }}
       MAIN_REPO: lucasrattz/cefetdb2.git
     runs-on: ubuntu-latest
     steps:
       - name: Clone frontend repository
+        env:
+          FRONTEND_REPO: ${{ github.repository }}
         run: |
           git clone -b master https://github.com/$FRONTEND_REPO
 
@@ -27,11 +28,13 @@ jobs:
           cd cefetdb2
 
       - name: Update frontend
+        env:
+          REPO: ${{ github.event.repository.name }}
         run: |
           mkdir frontend
-          mv ../$FRONTEND_REPO/src frontend/src
-          mv ../$FRONTEND_REPO/public frontend/public
-          mv ../$FRONTEND_REPO/*.json frontend/
+          mv ../$REPO/src frontend/src
+          mv ../$REPO/public frontend/public
+          mv ../$REPO/*.json frontend/
 
       - name: Commit and push changes to main repository
         run: |
