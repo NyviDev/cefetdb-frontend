@@ -25,6 +25,7 @@ jobs:
       - name: Clone main repository
         run: |
           git clone -b development https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
+          ls
           cd cefetdb2
 
       - name: Update frontend
