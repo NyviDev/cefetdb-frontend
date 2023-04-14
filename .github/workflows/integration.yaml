@@ -38,6 +38,7 @@ jobs:
 
       - name: Commit and push changes to main repository
         run: |
+          ls -l
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
               xargs -L1 git config --unset-all
 
