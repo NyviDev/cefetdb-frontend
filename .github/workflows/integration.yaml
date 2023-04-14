@@ -39,9 +39,8 @@ jobs:
       - name: Commit and push changes to main repository
         run: |
           cd cefetdb2
-          git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
-              xargs -L1 git config --unset-all
 
+          git config --unset-all http.https://github.com/.extraheader
           git config --global user.email "pipeline@cefetdb.rattz.xyz"
           git config --global user.name "Pipeline"
 
