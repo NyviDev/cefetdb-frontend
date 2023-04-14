@@ -32,7 +32,7 @@ jobs:
           REPO: ${{ github.event.repository.name }}
         run: |
           mkdir frontend
-          ls ../
+          ls ../$REPO
           mv ../$REPO/src frontend/src
           mv ../$REPO/public frontend/public
           mv ../$REPO/*.json frontend/
