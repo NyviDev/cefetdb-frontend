@@ -40,11 +40,10 @@ jobs:
         run: |
           cd cefetdb2
 
-          git config --unset-all http.https://github.com/.extraheader
           git config --global user.email "pipeline@cefetdb.rattz.xyz"
           git config --global user.name "Pipeline"
 
           GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
           git add .
           git commit -m "Frontend update from commit $GIT_HASH in $GITHUB_REF_NAME at $GITHUB_REPOSITORY"
-          git push --set-upstream origin development
+          git push origin development
