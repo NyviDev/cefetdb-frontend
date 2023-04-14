@@ -25,14 +25,13 @@ jobs:
       - name: Clone main repository
         run: |
           git clone -b development https://pipeline:$GITHUB_TOKEN@github.com/$MAIN_REPO
-          cd cefetdb2
 
       - name: Update frontend
         env:
           REPO: ${{ github.event.repository.name }}
         run: |
+          cd cefetdb2
           mkdir frontend
-          ls ../$REPO
           mv ../$REPO/src frontend/src
           mv ../$REPO/public frontend/public
           mv ../$REPO/*.json frontend/
