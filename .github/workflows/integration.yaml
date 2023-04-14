@@ -13,7 +13,7 @@ jobs:
   integration:
     env:
       GITHUB_TOKEN: ${{ secrets.MAIN_REPO_TOKEN }}
-      FRONTEND_REPO: ${{ github.event.repository.name }}
+      FRONTEND_REPO: ${{ github.event.repository }}
       MAIN_REPO: lucasrattz/cefetdb2.git
     runs-on: ubuntu-latest
     steps:
