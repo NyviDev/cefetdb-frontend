@@ -6,6 +6,12 @@
   padding-left: 300px;
   inset: 0px;
   background-color: rgba(0, 0, 0, 0.35);
+  z-index: 10;
+
+  @include mqW($lg, max) {
+    padding: 0;
+  }
+
   .modal {
     @include flex(column, flex-end, center);
     padding: 15px;
@@ -78,7 +84,7 @@
         background-color: $blue;
         padding: 7px 20px;
         border-radius: 8px;
-        box-shadow: 36px 48px 50px -10px rgba(0,0,0,0.26);
+        box-shadow: 36px 48px 50px -10px rgba(0, 0, 0, 0.26);
 
         transition: background 0.3s ease-in-out;
 

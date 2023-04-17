@@ -5,23 +5,34 @@ import { ModalContext, ModalContextInterface } from "../contexts/ModalContext";
 
 import styles from "./app.module.scss";
 import Footer from "../components/Footer/Footer";
+import {
+  SidebarContext,
+  SidebarContextInterface,
+} from "../contexts/SidebarContext";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
 
-  const valueContext: ModalContextInterface = {
+  const valueContextModal: ModalContextInterface = {
     modalIsOpen,
     setModalIsOpen,
+  };
+  const valueContextSidebar: SidebarContextInterface = {
+    sidebarIsOpen,
+    setSidebarIsOpen,
   };
 
   return (
     <>
-      <ModalContext.Provider value={valueContext}>
+      <ModalContext.Provider value={valueContextModal}>
         <div className={styles.app}>
-          <Sidebar />
-          <Home />
+          <SidebarContext.Provider value={valueContextSidebar}>
+            <Sidebar />
+            <Home />
+          </SidebarContext.Provider>
         </div>
-      <Footer />
+        <Footer />
       </ModalContext.Provider>
     </>
   );

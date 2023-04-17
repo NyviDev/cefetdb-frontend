@@ -13,13 +13,30 @@
   );
   margin-left: 300px;
 
+  @include mqW($lg, max) {
+    margin-left: 0;
+  }
   .title {
     @include fontStyle(800, 42px, 55px, $black);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-align: center;
     width: 500px;
-  }
 
-  
+    @include mqW($lg, max) {
+      @include responsiveFontStyle(36px, 42px);
+      padding: 0 20px;
+      max-width: 450px;
+    }
+
+    @include mqW($sm, max) {
+      @include responsiveFontStyle(30px, 36px);
+      width: 100%;
+    }
+  }
+}
+
+.noScrool {
+  position: fixed;
+  width: 100%;
 }

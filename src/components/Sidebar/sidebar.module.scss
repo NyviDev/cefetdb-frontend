@@ -1,15 +1,61 @@
 @import "../../styles/all.scss";
 
-.sidebar {
-  @include flex(column, center, space-between);
+.wrapper {
   position: fixed;
-  padding: 50px 0;
-  width: 300px;
-  height: 100vh;
-  background: $blue;
+  z-index: 10;
+  width: 40px;
 
-  @include mqH(650px, max) {
-    padding: 35px 0;
+  .open {
+    display: none;
+
+    @include mqW($md, max) {
+      display: block;
+      font-size: 30px;
+      color: $black;
+      padding: 10px 0 0 10px;
+      position: absolute;
+      z-index: -1;
+    }
   }
-  
+
+  &.wrapperSidebar {
+    @include mqW($lg, max) {
+      background-color: rgba(0, 0, 0, 0.378);
+      width: 100vw;
+    }
+  }
+
+  .sidebar {
+    overflow: scroll;
+    @include flex(column, flex-end, space-between);
+    // padding: 10px 0 50px 0;
+    width: 300px;
+    height: 100vh;
+    background: $blue;
+    padding: 50px 0;
+
+    @include mqW($lg, max) {
+      padding: 0 0 30px 0;
+      transform: translate(-100vw);
+      transition: 0.5s;
+      min-width: 200px;
+      width: 50%;
+
+      &.responsiveSidebar {
+        transform: none;
+      }
+
+      .close {
+        display: none;
+
+        @include mqW($lg, max) {
+          display: block;
+          font-size: 30px;
+          color: $white;
+          text-align: end;
+          margin: 10px 10px 20px 0;
+        }
+      }
+    }
+  }
 }
