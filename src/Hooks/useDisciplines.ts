@@ -6,8 +6,8 @@ export default function useDisciplines() {
   function getDisciplinesBySemesters(semester: number) {
     repo
       .getDisciplinesBySemesters(semester)
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
+      .then((data) => console.log(data, "ASDASD"))
+      .catch((err) => console.error(err, "passou aq"));
   }
 
   return {
