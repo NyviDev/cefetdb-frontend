@@ -9,7 +9,7 @@ const Links = () => {
 
   async function handleClick(semester: number) {
     console.log(semester, activePeriod);
-    getDisciplinesBySemesters(semester);
+    // getDisciplinesBySemesters(semester);
   }
 
   return (

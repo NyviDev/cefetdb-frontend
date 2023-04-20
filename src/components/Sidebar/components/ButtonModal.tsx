@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import styles from "./buttonModal.module.scss";
 import { ModalContext } from "../../../contexts/ModalContext";
 
-const ButtonModal = () => {
+interface ButtonModalInterface {
+  click: () => void;
+}
+
+const ButtonModal = ({ click }: ButtonModalInterface) => {
   const modal = useContext(ModalContext);
 
   return (
@@ -10,7 +14,10 @@ const ButtonModal = () => {
       <button
         type="button"
         className={styles.button}
-        onClick={() => modal.setModalIsOpen(true)}
+        onClick={() => {
+          modal.setModalIsOpen(true);
+          click();
+        }}
       >
         ENVIE UMA PROVA
       </button>

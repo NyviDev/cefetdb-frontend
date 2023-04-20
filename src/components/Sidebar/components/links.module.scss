@@ -1,21 +1,25 @@
 @import "../../../styles/all.scss";
 
 .navbar {
-    flex: 1;
-    width: 100%;
-    .item {
-      cursor: pointer;
-      text-align: center;
-      @include fontStyle(500, 21px, 25px, $white);
-      padding: 10px 0;
+  flex: 1;
+  width: 100%;
+  .item {
+    cursor: pointer;
+    text-align: center;
+    @include fontStyle(500, 21px, 25px, $white);
+    padding: 10px 0;
 
-      &:hover {
-        background-color: rgba(248, 248, 248, 0.266);
-      }
+    @include mqW($lg, max) {
+      @include responsiveFontStyle(18px, 25px);
+    }
 
-      &.active {
-        background: $white;
-        color: $black;
-      }
+    &:hover {
+      background-color: rgba(248, 248, 248, 0.266);
+    }
+
+    &.active {
+      background: $white;
+      color: $black;
     }
   }
+}

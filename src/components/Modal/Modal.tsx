@@ -4,6 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import styles from "./modal.module.scss";
 
+
 const Modal = () => {
   const modal = useContext(ModalContext);
   const ref = useRef<HTMLInputElement>(null);

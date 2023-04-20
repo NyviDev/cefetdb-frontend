@@ -1,6 +1,5 @@
 @import "../../../styles/all.scss";
 
-
 .container {
   background-color: $white;
 
@@ -21,6 +20,15 @@
       flex: 1;
       text-align: center;
       @include fontStyle(400, 21px, 25px, $white);
+
+      @include mqW($lg, max) {
+        @include responsiveFontStyle(18px, 25px);
+      }
+
+      @include mqW($sm, max) {
+        // @include responsiveFontStyle(15px, 20px);
+        // width: auto;
+      }
     }
 
     .button {

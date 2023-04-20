@@ -18,6 +18,10 @@
 
     .file {
       @include fontStyle(400, 18px, 25px, $black);
+
+      @include mqW($lg, max) {
+        @include responsiveFontStyle(16px, 25px);
+      }
     }
   }
 }
