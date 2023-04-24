@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, { useContext, useState } from "react";
 
 import styles from "./disciplines.module.scss";
 import Discipline from "./components/Discipline";
-
+import { DisciplinesContext } from "../../contexts/DisciplinesContext";
 interface MyPeriod {
   [index: number]: Object;
 }
 const Disciplines = () => {
-  
+  const arrayDisciplines = useContext(DisciplinesContext);
   const periods: MyPeriod = {
     1: {
       "Construção de Algoritmos": [
@@ -39,7 +39,7 @@ const Disciplines = () => {
       "Fundamentos de Redes": ["prova-pf.pdf"],
       "Modelagem de Dados": ["prova-p2.pdf", "prova-pf.pdf"],
       "Engenharia de Requisitos": ["prova-p1.pdf"],
-      "Cálculo": ["prova-p1.pdf", "prova-p2.pdf", "prova-pf.pdf"],
+      Cálculo: ["prova-p1.pdf", "prova-p2.pdf", "prova-pf.pdf"],
       "Metodologia da Pesquisa Científica": [],
     },
     3: {
@@ -85,13 +85,13 @@ const Disciplines = () => {
       "Gestão de Projetos de TI": ["prova-p1.pdf"],
       "Interação H/C": ["prova-p1.pdf"],
       "Tecnologias Sustentavéis": [],
-      "Ética": [],
+      Ética: [],
       "Projeto Integrador de Sistemas": ["prova-p2.pdf", "prova-pf.pdf"],
     },
     8: {
       "Governança de TI": ["prova-p1.pdf"],
       "Legislação e Prop. Intelectual": ["prova-p1.pdf"],
-      "Economia": [],
+      Economia: [],
     },
     0: {
       A: ["prova-p1.pdf"],
@@ -110,11 +110,11 @@ const Disciplines = () => {
   const [accordion, setAccordion] = useState(-1);
   return (
     <ul className={styles.disciplines}>
-      {Object.entries(periods[1]).map(([period, Disciplines], i) => {
+      {arrayDisciplines.disciplines.map((discipline, i) => {
+        // console.log(discipline.getName());
         return (
           <Discipline
-            period={period}
-            disciplines={Disciplines}
+            name={discipline.name}
             index={i}
             toggleAccordion={toggleAccordion}
             accordion={accordion}

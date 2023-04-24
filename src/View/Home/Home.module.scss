@@ -15,6 +15,11 @@
 
   @include mqW($lg, max) {
     margin-left: 0;
+
+    .noScroll {
+      position: fixed;
+      width: 100%;
+    }
   }
   .title {
     @include fontStyle(800, 42px, 55px, $black);
@@ -36,7 +41,4 @@
   }
 }
 
-.noScrool {
-  position: fixed;
-  width: 100%;
-}
+

@@ -1,7 +1,15 @@
 export class Discipline {
-    constructor(private id: string, private name: string, private type: string) {}
+  #id: string;
+  #name: string;
+  #type: string;
 
-    getName() {
-        return this.name;
-    }
+  constructor(id: string, name: string, type: string) {
+    this.#id = id;
+    this.#name = name;
+    this.#type = type;
+  }
+
+  get name() {
+    return this.#name;
+  }
 }
