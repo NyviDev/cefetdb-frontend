@@ -11,7 +11,7 @@ const Home = () => {
     <main
       className={
         sidebar.sidebarIsOpen
-          ? `${styles.main} ${styles.noScrool}`
+          ? `${styles.main} ${styles.noScroll}`
           : `${styles.main}`
       }
     >

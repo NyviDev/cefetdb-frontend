@@ -41,7 +41,11 @@
       display: none;
     }
 
-    
+    @include mqW($md, max) {
+      &.responsiveSidebar {
+        transform: none;
+      }
+    }
 
     .close {
       display: none;
@@ -53,9 +57,7 @@
         text-align: end;
         margin: 10px 10px 20px 0;
 
-        &.responsiveSidebar {
-          transform: none;
-        }
+        
       }
     }
 

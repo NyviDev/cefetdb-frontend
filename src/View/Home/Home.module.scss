@@ -14,13 +14,17 @@
   margin-left: 300px;
 
   @include mqW($lg, max) {
-    margin-left: 0;
+    margin-left: 0;  
+  }
 
-    .noScroll {
+  &.noScroll {
+    @include mqW($md, max) {
       position: fixed;
       width: 100%;
+
     }
   }
+
   .title {
     @include fontStyle(800, 42px, 55px, $black);
     letter-spacing: 0.08em;
