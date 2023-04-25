@@ -14,11 +14,14 @@ import {
   DisciplinesContext,
   DisciplinesContextInterface,
 } from "../contexts/DisciplinesContext";
+import { ExamContext, ExamContextInterface } from "../contexts/ExamContext";
+import { Exam } from "../Model/Exam";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
+  const [exam, setExam] = useState<Exam[]>([]);
 
   const valueContextDisciplines: DisciplinesContextInterface = {
     disciplines,
@@ -33,14 +36,21 @@ function App() {
     setSidebarIsOpen,
   };
 
+  const valueContextFiles: ExamContextInterface = {
+    exam,
+    setExam,
+  };
+
   return (
     <>
       <ModalContext.Provider value={valueContextModal}>
         <div className={styles.app}>
           <SidebarContext.Provider value={valueContextSidebar}>
             <DisciplinesContext.Provider value={valueContextDisciplines}>
-              <Sidebar />
-              <Home />
+              <ExamContext.Provider value={valueContextFiles}>
+                <Sidebar />
+                <Home />
+              </ExamContext.Provider>
             </DisciplinesContext.Provider>
           </SidebarContext.Provider>
         </div>
