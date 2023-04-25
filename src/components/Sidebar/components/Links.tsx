@@ -2,7 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import styles from "./links.module.scss";
 import useDisciplines from "../../../Hooks/useDisciplines";
 
-const Links = () => {
+interface LinksInterface {
+  click: () => void;
+}
+
+const Links = ({click}: LinksInterface) => {
   const { getDisciplinesBySemesters } = useDisciplines();
   const [activePeriod, setActivePeriod] = useState(1);
 
@@ -11,6 +15,7 @@ const Links = () => {
 
   async function handleClick(semester: number) {
     getDisciplinesBySemesters(semester);
+    click();
   }
 
   useEffect(() => {
@@ -25,7 +30,6 @@ const Links = () => {
           onClick={() => {
             setActivePeriod(1);
             handleClick(1);
-            
           }}
         >
           1º Período
