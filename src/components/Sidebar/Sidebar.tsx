@@ -17,6 +17,7 @@ function Sidebar() {
     sidebar.setSidebarIsOpen(!sidebar.sidebarIsOpen);
   };
 
+
   return (
     <div className={styles.wrapper} ref={wrapperRef}>
       <button className={styles.open} onClick={toggleSidebar}>
@@ -27,7 +28,7 @@ function Sidebar() {
           <AiOutlineMenuFold />
         </button>
         <SearchBar />
-        <Links />
+        <Links click={toggleSidebar}/>
         <ButtonModal click={toggleSidebar} />
       </aside>
     </div>
