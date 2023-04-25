@@ -19,7 +19,7 @@ const Files = ({ exams }: FilesInterface) => {
     <ul className={styles.files}>
       {exams.map((file) => {
         return (
-          <li className={styles.fileContainer}>
+          <li className={styles.fileContainer} key={file.name}>
             <AiFillFileText />
             <a
               className={styles.file}
