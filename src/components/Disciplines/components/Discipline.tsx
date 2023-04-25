@@ -44,9 +44,11 @@ const Discipline = ({
           </button>
         )}
       </div>
-      <Collapse isOpened={accordion === index}>
-        <Files exams={contextExam.exam}/>
-      </Collapse>
+      {accordion === index && (
+        <Collapse isOpened={accordion === index}>
+          <Files exams={contextExam.exam} />
+        </Collapse>
+      )}
     </li>
   );
 };

@@ -10,13 +10,14 @@ interface FilesInterface {
 }
 
 const Files = ({ exams }: FilesInterface) => {
+
   return exams === null ? (
     <div className={styles.notFoundContainer}>
       <p className={styles.fileNotFound}>Prova Não Encontrada</p>
     </div>
   ) : (
     <ul className={styles.files}>
-      {exams.map((file, i) => {
+      {exams.map((file) => {
         return (
           <li className={styles.fileContainer}>
             <AiFillFileText />
