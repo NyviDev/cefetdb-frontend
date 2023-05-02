@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import DisciplineDao from "../Dao/DisciplineDao";
 import { DisciplinesContext } from "../contexts/DisciplinesContext";
 import { ExamContext } from "../contexts/ExamContext";
+import { Exam } from "../Model/Exam";
 
 export default function useDisciplines() {
   const repo: DisciplineDao = new DisciplineDao();
   const arrayDisciplines = useContext(DisciplinesContext);
   const arrayExam = useContext(ExamContext);
+  const [exams, setExams] = useState<Exam[]>([]);
 
   function getDisciplinesBySemesters(semester: number) {
     repo
@@ -17,9 +19,9 @@ export default function useDisciplines() {
       .catch((err) => console.error(err));
   }
 
-  function getFilesFromDiscipline(nameDiscipline: string) {
+  async function getFilesFromDiscipline(nameDiscipline: string) {
     arrayExam.setExam([]);
-    repo
+    await repo
       .getFilesFromDiscipline(nameDiscipline)
       .then((data) => {
         arrayExam.setExam(data);
@@ -30,11 +32,19 @@ export default function useDisciplines() {
   function searchDisciplines(nameDiscipline: string) {
     repo.getAllDisciplines().then((data) => {
       const results = data.filter((item) => {
-        return item && item.name && item.name.toLowerCase().includes(nameDiscipline);
+        const nameWithoutAccent = item.name
+          .normalize("NFD")
+          .replace(/[\u0300-\u0302\u0308](?!\u00E7)|\u0303/g, "");
+
+        return (
+          item &&
+          (nameWithoutAccent || item.name) &&
+          (nameWithoutAccent.toLowerCase().includes(nameDiscipline) ||
+            item.name.toLowerCase().includes(nameDiscipline))
+        );
       });
       console.log(results);
       arrayDisciplines.setDisciplines(results);
-
     });
   }
 
@@ -42,5 +52,6 @@ export default function useDisciplines() {
     getDisciplinesBySemesters,
     getFilesFromDiscipline,
     searchDisciplines,
+    exams,
   };
 }
