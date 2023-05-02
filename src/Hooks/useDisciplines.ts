@@ -27,8 +27,20 @@ export default function useDisciplines() {
       .catch((err) => console.log(err, "erro"));
   }
 
+  function searchDisciplines(nameDiscipline: string) {
+    repo.getAllDisciplines().then((data) => {
+      const results = data.filter((item) => {
+        return item && item.name && item.name.toLowerCase().includes(nameDiscipline);
+      });
+      console.log(results);
+      arrayDisciplines.setDisciplines(results);
+
+    });
+  }
+
   return {
     getDisciplinesBySemesters,
     getFilesFromDiscipline,
+    searchDisciplines,
   };
 }

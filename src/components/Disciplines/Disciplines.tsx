@@ -24,17 +24,21 @@ const Disciplines = () => {
 
   return (
     <ul className={styles.disciplines}>
-      {arrayDisciplines.disciplines.map((discipline, i) => {
-        return (
-          <Discipline
-            key={discipline.name}
-            name={discipline.name}
-            index={i}
-            toggleAccordion={toggleAccordion}
-            accordion={accordion}
-          />
-        );
-      })}
+      {arrayDisciplines.disciplines.length === 0 ? (
+        <p>Matéria Não Encontrada</p>
+      ) : (
+        arrayDisciplines.disciplines.map((discipline, i) => {
+          return (
+            <Discipline
+              key={discipline.name}
+              name={discipline.name}
+              index={i}
+              toggleAccordion={toggleAccordion}
+              accordion={accordion}
+            />
+          );
+        })
+      )}
     </ul>
   );
 };
