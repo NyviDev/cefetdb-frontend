@@ -26,7 +26,7 @@ function Sidebar() {
         <button className={styles.close} onClick={toggleSidebar}>
           <AiOutlineMenuFold />
         </button>
-        <SearchBar />
+        <SearchBar click={toggleSidebar}/>
         <Links click={toggleSidebar} />
         <ButtonModal click={toggleSidebar} />
       </aside>

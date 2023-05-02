@@ -28,9 +28,8 @@
   }
 
   .sidebar {
-    overflow: scroll;
     @include flex(column, flex-end, space-between);
-    // padding: 10px 0 50px 0;
+    overflow: scroll;
     width: 300px;
     height: 100vh;
     background: $blue;
@@ -40,8 +39,7 @@
     &::-webkit-scrollbar {
       display: none;
     }
-
-    @include mqW($md, max) {
+    @include mqW($lg, max) {
       &.responsiveSidebar {
         transform: none;
       }

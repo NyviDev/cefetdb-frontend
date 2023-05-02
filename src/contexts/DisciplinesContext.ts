@@ -10,3 +10,4 @@ export const DisciplinesContext = createContext<DisciplinesContextInterface>({
   disciplines: [],
   setDisciplines: () => null,
 });
+

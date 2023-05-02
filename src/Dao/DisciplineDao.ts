@@ -20,5 +20,9 @@ export default class DisciplineDao implements DisciplineRepositorio {
     const data = await response.json();
     return data;
   }
-  //   async getAllDisciplines() {}
+    async getAllDisciplines(): Promise<Discipline[]>  {
+      const response = await fetch(`http://localhost:3500/api/disciplines`);
+      const data = await response.json();
+      return data;
+    }
 }
